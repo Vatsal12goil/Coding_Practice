@@ -1,0 +1,7 @@
+## leetcode Q 3925
+
+class Solution:
+    def concatWithReverse(self, nums: list[int]) -> list[int]:
+
+        concate_arr = nums + nums[::-1]
+        return concate_arr
