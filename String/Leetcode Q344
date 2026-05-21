@@ -1,0 +1,11 @@
+## Reverse the string \
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        return s.reverse()
+
+
+
+
+others methods:
+** slicing 
+** using third variable 
