@@ -1,0 +1,24 @@
+# Remove the Nth nodde from the linked list 
+
+class Solution:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+
+        list_val = []
+
+        temp = head
+
+        while temp:
+            list_val.append(temp)
+            temp = temp.next
+
+        remove_index = len(list_val) - n
+
+        # if the nth node is on head mtlb initial position
+        if remove_index == 0:
+            return head.next
+
+        prev_node = list_val[remove_index - 1]
+        # skip the node we wanted to remove 
+        prev_node.next = list_val[remove_index].next
+
+        return head
