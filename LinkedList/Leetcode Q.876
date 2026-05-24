@@ -1,0 +1,13 @@
+#leetcode Q. 876
+# Middle of the linked list
+
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+        list_val = []
+
+        while head:
+            list_val.append(head)
+            head = head.next
+        
+        return list_val[len(list_val) // 2]
