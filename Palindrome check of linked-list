@@ -1,0 +1,13 @@
+# Leetcode Problem No. 234
+
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        list_val = []
+        while head:
+            list_val.append(head.val)
+            head = head.next
+        list_val1 = list_val[::-1]
+        if list_val == list_val1:
+            return True
+        else:
+            return False
