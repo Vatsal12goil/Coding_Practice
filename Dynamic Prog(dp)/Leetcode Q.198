@@ -1,0 +1,18 @@
+## House Robber Dp Problem 
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        dp = {}
+        def solve(ch, nums):
+           if ch >= len(nums):
+              return 0
+           if ch == len(nums)-1:
+              return nums[ch]
+           if ch in dp :
+              return dp[ch]
+
+           take = nums[ch] + solve(ch + 2, nums)
+           skip = solve(ch + 1, nums)
+           dp[ch] = max(take,skip)
+           return dp[ch]
+        return solve(0,nums)
