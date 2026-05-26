@@ -1,0 +1,24 @@
+** # Binary Tree Inorder Traversal **/
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        result = []
+        def inorder(root):
+            if root is None:
+                return 
+            inorder(root.left)
+            result.append(root.val)
+            inorder(root.right)
+        inorder(root)
+        return result
+
+
+acha note we can also write it without the helper function 
+
+
+# I am going to write 
+def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if root is None:
+            return 
+        left = inorderTraversal(root.left)
+        right = inorderTraversal(root.right)
+        return left + [root.val] + right
