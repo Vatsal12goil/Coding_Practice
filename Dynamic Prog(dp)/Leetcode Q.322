@@ -1,0 +1,38 @@
+# DP Problem Coin-Change
+
+
+class Solution:
+
+    def coinChange(self, coins: List[int], amount: int) -> int:
+
+        dp = {}
+
+        def coinch(total):
+
+            if total == amount:
+                return 0
+
+            if total > amount:
+                return float('inf')
+
+            if total in dp:
+                return dp[total]
+
+            ans = float('inf')
+
+            for coin in coins:
+
+                take = 1 + coinch(total + coin)
+
+                ans = min(ans, take)
+
+            dp[total] = ans
+
+            return dp[total]
+
+        result = coinch(0)
+
+        if result == float('inf'):
+            return -1
+
+        return result
