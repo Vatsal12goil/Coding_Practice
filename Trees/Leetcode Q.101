@@ -1,0 +1,21 @@
+# Symmetric Tree Question 
+
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+
+            if root is None:
+                return True
+            def mirror(left,right):
+
+                if left is None and right is None :
+                    return True 
+                if left is None or right is None :
+                    return False 
+                if left.val != right.val :
+                    return False 
+                leftside = mirror(left.left,right.right)
+                rightside = mirror(left.right,right.left)
+
+                return leftside and rightside
+            return mirror(root.left,root.right)
+                
