@@ -1,0 +1,10 @@
+** # Binary Tree PreOrder Traversal **
+
+
+class Solution:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        if root is None:
+            return []                              # without helper function 
+        left = self.preorderTraversal(root.left)
+        right = self.preorderTraversal(root.right)
+        return [root.val] + left + right
