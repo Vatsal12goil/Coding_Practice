@@ -1,0 +1,26 @@
+#  Minimum Cost Climbing Stairs
+
+
+class Solution:
+
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+
+        dp = {}
+
+        def min_cost(pos, cost):
+
+            if pos >= len(cost):
+                return 0
+
+            if pos in dp:
+                return dp[pos]
+
+            first_ch = cost[pos] + min_cost(pos + 1, cost)
+
+            second_ch = cost[pos] + min_cost(pos + 2, cost)
+
+            dp[pos] = min(first_ch, second_ch)
+
+            return dp[pos]
+
+        return min(min_cost(0, cost), min_cost(1, cost))
