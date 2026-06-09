@@ -1,0 +1,9 @@
+Leetcode Question No. 347
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+
+        freq = Counter(nums)     # freq array by counter method
+
+        result = sorted(freq, key=freq.get, reverse=True)   # descending order
+
+        return result[:k]
