@@ -1,0 +1,17 @@
+***Sort Linked List***
+
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+            list_val = []
+            temp = head
+            while temp:
+                list_val.append(temp.val)
+                temp = temp.next
+            list_val.sort()
+            temp = head
+
+            for num in list_val:
+                temp.val = num
+                temp = temp.next
+
+            return head  
