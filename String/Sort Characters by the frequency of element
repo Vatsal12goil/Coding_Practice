@@ -1,0 +1,15 @@
+Leetcode Q.451
+
+from collections import Counter
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        freq = Counter(s)
+        result = ""
+
+        chars = sorted(freq, key=freq.get, reverse=True)
+
+        for ch in chars:
+            result += ch * freq[ch]
+
+        return result
